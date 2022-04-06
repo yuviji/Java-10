@@ -1,6 +1,6 @@
 *
 !.gitignore
-!readme.md
+!*.md
 !*.java
 !*/
 !*.pdf
