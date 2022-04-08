@@ -73,8 +73,8 @@ public class Terminal {
                     card.setTicket(card.getTicket() - p.getPrice());
                     p.setStock(p.getStock() - 1);
                     System.out.println(p.getName() + " given! " + p.getStock() + " left.");
-                    return;
                 }
+                return;
             }
         }
         System.out.println(name + " not found!");        
