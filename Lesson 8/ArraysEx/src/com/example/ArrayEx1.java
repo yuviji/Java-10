@@ -8,9 +8,13 @@ package com.example;
 public class ArrayEx1 {
 
     public static void main(String args[]) {
+        int[] score = new int[9];
+        byte[] values = new byte[10];
+        for (int i = 0; i < 10; i++)
+            values[i] = 1;
         
-       //int[] primeNum = new long[20];
-        //int even=new int[5];
+        int[] primeNum = new int[20];
+        int even[] = new int[5];
         long[] primes = new long[20];
         primes[0] = 2;
         primes[1] = 3;
