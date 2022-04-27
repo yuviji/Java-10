@@ -2,5 +2,6 @@
 !.gitignore
 !*.md
 !*.java
+!*.jar
 !*/
 !*.pdf
