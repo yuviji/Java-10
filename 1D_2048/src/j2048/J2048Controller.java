@@ -1,29 +1,22 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
- */
-package j2048controller;
+package j2048;
 import java.util.*;
 
-/**
- *
- * @author Yuvi
- */
 public class J2048Controller {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
-        int DIM = 4;
+        Scanner scan = new Scanner(System.in);
+        
+        // setup
+        System.out.print("Enter board DIM (2 - 10): ");
+        int DIM = scan.nextInt();
         int[] board = new int[DIM];
         J2048Model model = new J2048Model(DIM);
         J2048View view = new J2048View();
-        Scanner scan = new Scanner(System.in);
         
         boolean quit = false;
         model.init(board);
         while(!quit && model.state(board) == 'P'){
+            // gameplay
             view.printScore(model.getScore());
             view.draw(board);
             System.out.print("Move: ");
@@ -43,6 +36,7 @@ public class J2048Controller {
             }
             model.spawn(board);
         }
+        // game over
         view.printScore(model.getScore());
         view.draw(board);
         System.out.println(model.state(board) == 'W' ? "You Won!" : "Game Over!");

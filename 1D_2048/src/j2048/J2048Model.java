@@ -1,17 +1,9 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package j2048controller;
+package j2048;
 import java.util.*;
 
-/**
- *
- * @author Yuvi
- */
 public class J2048Model {
-    int score;
-    int DIM;
+    private int score;
+    private int DIM;
     
     public J2048Model(int DIM){
         this.DIM = DIM;
@@ -24,7 +16,8 @@ public class J2048Model {
     public int getScore(){
         return this.score;
     }
-    public int getOpen(int[] board){
+    
+    private int getOpen(int[] board){
         // find new open space on board
         Random rand = new Random();
         int a = rand.nextInt(DIM);
@@ -33,8 +26,7 @@ public class J2048Model {
         }
         return a;
     }
-    
-    public boolean cellEmpty(int[] board){
+    private boolean cellEmpty(int[] board){
         // check if any cell is empty in the board
         for (int i = 0; i < DIM; i++){
             if (board[i] == 0)
@@ -42,7 +34,7 @@ public class J2048Model {
         }
         return false;
     }
-    public int nextLeft(int[] board, int a){
+    private int nextLeft(int[] board, int a){
         // find next non-empty cell to left of cell
         for (int i = a - 1; i >= 0; i--){
             if (board[i] != 0)
@@ -50,7 +42,7 @@ public class J2048Model {
         }
         return -1;
     }
-    public int nextRight(int[] board, int a){
+    private int nextRight(int[] board, int a){
         // find next non-empty cell to right of cell
         for (int i = a + 1; i < DIM; i++){
             if (board[i] != 0)
@@ -58,7 +50,7 @@ public class J2048Model {
         }
         return DIM;
     }
-    public void swap(int[] board, int a, int b){
+    private void swap(int[] board, int a, int b){
         int temp = board[a];
         board[a] = board[b];
         board[b] = temp;
@@ -80,7 +72,6 @@ public class J2048Model {
     }
     public char state(int[] board){
         // W = WIN, P = PLAYING, L = LOST
-        
         // win
         for (int i : board){
             if (i == 2048)
@@ -99,7 +90,7 @@ public class J2048Model {
     public void moveLeft(int[] board){
         for (int i = 1; i < DIM; i++){                                          // merge similar cells
             int left = this.nextLeft(board, i);
-            if (left != -1 && board[i] == board[left]){
+            if (board[i] != 0 && left != -1 && board[i] == board[left]){
                 board[left] *= 2;
                 this.score += board[left];
                 board[i] = 0;
@@ -118,7 +109,7 @@ public class J2048Model {
     public void moveRight(int[] board){
         for (int i = DIM - 1; i >= 0; i--){                                     // merge similar cells
             int right = this.nextRight(board, i);
-            if (right != DIM && board[i] == board[right]){
+            if (board[i] != 0 && right != DIM && board[i] == board[right]){
                 board[right] *= 2;
                 this.score += board[right];
                 board[i] = 0;

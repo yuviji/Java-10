@@ -1,13 +1,5 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package j2048controller;
+package j2048;
 
-/**
- *
- * @author Yuvi
- */
 public class J2048View {
     
     public void printScore(int score){
