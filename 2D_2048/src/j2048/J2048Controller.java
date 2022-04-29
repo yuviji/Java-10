@@ -43,7 +43,7 @@ public class J2048Controller {
                 default:
                     System.out.println("Please enter a valid input.");
             }
-            if (!Arrays.equals(board, prev))
+            if (!Arrays.equals(board, prev) && model.cellEmpty(board))
                 model.spawn(board);
         }
         // game over

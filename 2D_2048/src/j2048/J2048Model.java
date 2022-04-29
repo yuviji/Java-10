@@ -27,16 +27,6 @@ public class J2048Model {
         }
         return new J2048Pair(a, b);
     }
-    private boolean cellEmpty(int[][] board){
-        // check if any cell is empty in the board
-        for (int i = 0; i < DIM; i++){
-            for (int j = 0; j < DIM; j++){
-                if (board[i][j] == 0)
-                    return true;
-            }
-        }
-        return false;
-    }
     private int nextLeft(int[][] board, int a, int b){
         // find next non-empty cell to left of cell
         for (int i = b - 1; i >= 0; i--){
@@ -76,6 +66,16 @@ public class J2048Model {
         board[b1][b2] = temp;
     }
     
+    public boolean cellEmpty(int[][] board){
+        // check if any cell is empty in the board
+        for (int i = 0; i < DIM; i++){
+            for (int j = 0; j < DIM; j++){
+                if (board[i][j] == 0)
+                    return true;
+            }
+        }
+        return false;
+    }
     public void init(int[][] board){
         // initialize board with 2 randomly placed 2's
         J2048Pair a = this.getOpen(board), b = this.getOpen(board);

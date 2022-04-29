@@ -4,7 +4,7 @@ package com.example;
 public class ComputeTime {
 
     public static void main(String[] args) {
-
+        
         double x1 = 20;
         double x2 = 30;
         double y1 = 10;
@@ -17,7 +17,7 @@ public class ComputeTime {
     }
 
     static double getDistance(double x1, double x2, double y1, double y2) {
-        return Math.sqrt((x1 - x1) * (x1 - x2) + (y1 - y2) * (y1 - y2));
+        return Math.sqrt((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2));
     }
 
 }

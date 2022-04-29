@@ -20,14 +20,13 @@ public class MultiCatch {
                 total++;
             }
             r.close();
-        } catch (Exception e) {
+        } catch (FileNotFoundException e) {
             System.out.println(e.getMessage());
         } catch (IOException e) {
             System.out.println(e.getMessage());
-        } catch (FileNotFoundException e) {
+        } catch (Exception e) {
             System.out.println(e.getMessage());
         }
-
         return total;
     }
 }
