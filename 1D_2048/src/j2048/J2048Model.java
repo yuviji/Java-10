@@ -56,6 +56,13 @@ public class J2048Model {
         board[b] = temp;
     }
     
+    public boolean equal(int[] a, int[] b){
+        for (int i = 0; i < DIM; i++){
+            if (a[i] != b[i])
+                return false;
+        }
+        return true;
+    }
     public void init(int[] board){
         int a = this.getOpen(board), b = this.getOpen(board);
         while (a == b)

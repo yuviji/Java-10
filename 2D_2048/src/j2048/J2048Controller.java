@@ -20,8 +20,10 @@ public class J2048Controller {
             view.printScore(model.getScore());
             view.draw(board);
             int[][] prev = new int[DIM][DIM];
-            for (int i = 0; i < DIM; i++)
-                System.arraycopy(board[i], 0, prev[i], 0, DIM);
+            for (int i = 0; i < DIM; i++){
+                for (int j = 0; j < DIM; j++)
+                    prev[i][j] = board[i][j];
+            }
             System.out.print("Move: ");
             char move = Character.toLowerCase(scan.next().charAt(0));
             switch(move){
@@ -43,7 +45,7 @@ public class J2048Controller {
                 default:
                     System.out.println("Please enter a valid input.");
             }
-            if (!Arrays.equals(board, prev) && model.cellEmpty(board))
+            if (!model.equal(prev, board))
                 model.spawn(board);
         }
         // game over

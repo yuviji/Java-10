@@ -17,6 +17,16 @@ public class J2048Model {
         return this.score;
     }
     
+    private boolean cellEmpty(int[][] board){
+        // check if any cell is empty in the board
+        for (int i = 0; i < DIM; i++){
+            for (int j = 0; j < DIM; j++){
+                if (board[i][j] == 0)
+                    return true;
+            }
+        }
+        return false;
+    }
     private J2048Pair getOpen(int[][] board){
         // find new open space on board
         Random rand = new Random();
@@ -66,15 +76,14 @@ public class J2048Model {
         board[b1][b2] = temp;
     }
     
-    public boolean cellEmpty(int[][] board){
-        // check if any cell is empty in the board
+    public boolean equal(int[][] a, int[][] b){
         for (int i = 0; i < DIM; i++){
             for (int j = 0; j < DIM; j++){
-                if (board[i][j] == 0)
-                    return true;
+                if (a[i][j] != b[i][j])
+                    return false;
             }
         }
-        return false;
+        return true;
     }
     public void init(int[][] board){
         // initialize board with 2 randomly placed 2's
