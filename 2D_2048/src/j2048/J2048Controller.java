@@ -23,7 +23,7 @@ public class J2048Controller {
             for (int i = 0; i < DIM; i++){
                 for (int j = 0; j < DIM; j++)
                     prev[i][j] = board[i][j];
-            }
+                
             System.out.print("Move: ");
             char move = Character.toLowerCase(scan.next().charAt(0));
             switch(move){
@@ -47,11 +47,11 @@ public class J2048Controller {
             }
             if (!model.equal(prev, board))
                 model.spawn(board);
+            }
+            // game over
+            view.printScore(model.getScore());
+            view.draw(board);
+            System.out.println(model.state(board) == 'W' ? "You Won!" : "Game Over!");
         }
-        // game over
-        view.printScore(model.getScore());
-        view.draw(board);
-        System.out.println(model.state(board) == 'W' ? "You Won!" : "Game Over!");
     }
-    
 }
