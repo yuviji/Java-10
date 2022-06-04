@@ -5,10 +5,3 @@
 !*.jar
 !*/
 !*.pdf
-/out/
-/.idea/
-/Lesson 9/JavaFXTest/nbproject/private/
-/Lesson 9/JavaFXTest/build/
-/Lesson 9/ColorsShapes/nbproject/private/
-/Lesson 9/ColorsShapes/build/
-/Minesweeper/nbproject/private/
