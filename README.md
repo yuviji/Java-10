@@ -1,2 +1,2 @@
 # Java-10
- Practice files from Mrs. Nikita Patil's Computer Science course in 10th grade
+ Practice files from Electrical Engineer/Computer Science unit on Java in 10th grade
